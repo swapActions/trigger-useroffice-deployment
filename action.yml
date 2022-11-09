@@ -36,8 +36,8 @@ runs:
 
         echo "result=${result}" >> $GITHUB_OUTPUT
 
-        if [[ $RESULT != "201" ]]; then
-            echo "Failed to trigger Gitlab pipeline: $RESULT"
+        if [[ $result != "201" ]]; then
+            echo "Failed to trigger Gitlab pipeline: $result"
             exit 1
           fi
       shell: bash

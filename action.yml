@@ -32,7 +32,7 @@ runs:
             -o /dev/null \
             --silent \
             --write-out '%{http_code}' \
-            ${{ gh-trigger-url }})
+            ${{ inputs.gh-trigger-url }})
 
         echo "result=${result}" >> $GITHUB_OUTPUT
 

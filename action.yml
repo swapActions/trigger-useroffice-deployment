@@ -29,7 +29,7 @@ runs:
             -F ref=master \
             -F "variables[RUN_DEPLOY]=1" \
             -F "variables[ENVIRONMENT]=${{ inputs.environment }}" \
-            -F "variables[REPOSITORY]${REPOSITORY#UserOfficeProject/}" \
+            -F "variables[REPOSITORY]=${REPOSITORY#UserOfficeProject/}" \
             -o /dev/null \
             --silent \
             --write-out '%{http_code}' \

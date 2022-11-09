@@ -23,12 +23,13 @@ runs:
   steps:
     - id: execute-curl
       run: |
+        REPOSITORY=${{ github.repository }}
         result=$(curl -X POST \
             -F token="${{ inputs.gh-token }}" \
             -F ref=master \
             -F "variables[RUN_DEPLOY]=1" \
             -F "variables[ENVIRONMENT]=${{ inputs.environment }}" \
-            -F "variables[REPOSITORY]=${{ inputs.repository }}" \
+            -F "variables[REPOSITORY]${REPOSITORY#UserOfficeProject/}" \
             -o /dev/null \
             --silent \
             --write-out '%{http_code}' \

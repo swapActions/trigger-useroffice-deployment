@@ -33,5 +33,11 @@ runs:
             --silent \
             --write-out '%{http_code}' \
             ${{ gh-trigger-url }})
+
         echo "result=${result}" >> $GITHUB_OUTPUT
+
+        if [[ $RESULT != "201" ]]; then
+            echo "Failed to trigger Gitlab pipeline: $RESULT"
+            exit 1
+          fi
       shell: bash
